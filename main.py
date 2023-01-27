@@ -1,4 +1,6 @@
 import telethon
+from telethon.client import TelegramClient
+from telethon.sessions import StringSession
 import os
 import time
 import flask
@@ -16,11 +18,9 @@ def handle_request():
     else:
         return ""
                 
-api_id = os.environ.get("API_ID")
-api_hash = os.environ.get("API_HASH")
-client = telethon.TelegramClient(os.environ.get("SNAME"), api_id, api_hash)
-client.start()
-client.run_until_disconnected()
+
+with TelegramClient(StringSession(os.environ.get("STRING_SESSION")), api_id=os.environ.get("API_ID"), api_hash=os.environ.get("API_HASH")) as client:
+    client.loop.run_until_complete(client.send_message('me', 'Hi'))
 
 app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 3000)))
 
