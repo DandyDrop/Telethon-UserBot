@@ -18,7 +18,7 @@ def handle_request():
                 
 
 with TelegramClient(StringSession(os.environ.get("STRING_SESSION")), int(os.environ.get("API_ID")), os.environ.get("API_HASH")) as client:
-    client.loop.run_until_complete(client.send_message('me', 'Hello, MAZAFUCKA'))
+    client.loop.run_until_complete(client.send_message('me', 'GONNA FUCK THAT'))
 
 app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 3000)))
 
