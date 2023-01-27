@@ -1,8 +1,6 @@
-import telethon
 from telethon.client import TelegramClient
 from telethon.sessions import StringSession
 import os
-import time
 import flask
 from flask import Flask, request, Response
 app = Flask(__name__)
@@ -19,8 +17,8 @@ def handle_request():
         return ""
                 
 
-with TelegramClient(StringSession(os.environ.get("STRING_SESSION")), api_id=os.environ.get("API_ID"), api_hash=os.environ.get("API_HASH")) as client:
-    client.loop.run_until_complete(client.send_message('me', 'Hi'))
+with TelegramClient(StringSession(os.environ.get("STRING_SESSION")), int(os.environ.get("API_ID")), os.environ.get("API_HASH")) as client:
+    client.loop.run_until_complete(client.send_message('me', 'Hello, MAZAFUCKA'))
 
 app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 3000)))
 
