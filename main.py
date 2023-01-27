@@ -3,6 +3,7 @@ from telethon.sessions import StringSession
 import os
 import flask
 from flask import Flask, request, Response
+import telebot
 app = Flask(__name__)
 
 @app.route('/', methods=['POST', 'GET'])
