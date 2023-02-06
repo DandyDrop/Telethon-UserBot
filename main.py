@@ -8,7 +8,7 @@ data = {"pass": os.environ.get('PASS')}
 
 @app.route('/', methods=['HEAD'])
 def handle_request():
-    requests.post("https://send.adaptable.app", data=data)
+    requests.post("https://mjrecentevday.adaptable.app", data=data)
     return ""
     
 
