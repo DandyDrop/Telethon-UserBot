@@ -1,10 +1,10 @@
-
 import requests
 import os
+import json
 from flask import Flask, request, Response
 app = Flask(__name__)
 
-data = {"a": "as"}
+data = {os.environ.get('PASS'): "Not None"}
 
 @app.route('/', methods=['HEAD'])
 def handle_request():
